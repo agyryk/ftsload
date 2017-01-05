@@ -54,9 +54,10 @@ esac
 shift
 done
 
+DEBUGFLAG=
 if [[ $@ == *"--debug"* ]]
 then
-  DEBUG="ON"
+  DEBUGFLAG="-debug"
 fi
 
 if [ ${QUERY} == "term-high" ]; then
@@ -75,12 +76,6 @@ elif [ "${QUERY}" == 'custom' ]; then
     QUERY_FILE="/datasets/custom.dat"
 fi
 
-echo FILE is "${QUERY_FILE}"
 
-if [ "${DEBUG}" == "ON" ]; then
-    DEBUGFLAG="-debug"
-else
-    DEBUGFLAG=
-fi
     
-$GOBIN/hey -n "${OPERATIONS}" -c "${CLIENTS}" -m POST -D "${DIR}""${QUERY_FILE}" -T "application/json" -a "${USER}":"${PASSWORD}" ${DEBUGFLAG} http://"${SERVER}":"${PORT}"/api/index/"${INDEX}"/query
+$GOPATH/bin/hey -n "${OPERATIONS}" -c "${CLIENTS}" -m POST -D "${DIR}""${QUERY_FILE}" -a "${USER}":"${PASSWORD}" ${DEBUGFLAG} http://"${SERVER}":"${PORT}"/api/index/"${INDEX}"/query
