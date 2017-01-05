@@ -1,7 +1,7 @@
 
 #!/bin/bash
 #ftsload/scripts/run.sh -o <operations> -c <clients> -q <query> -u <usr> -w <password> -s <server> -p <ftsport> -i <fts index>
-set -x
+#set -x
 
 DIR=$(pwd>&1)
 
