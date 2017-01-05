@@ -1,0 +1,1 @@
+{"ctl": {"timeout": 0}, "query": {"query": "can", "boost": 1}, "facets": {"date": {"field": "date", "date_ranges": [{"end": "2015-11-26", "name": "end"}, {"start": "2013-11-17", "name": "start"}], "size": 5}}, "fields": ["*"], "size": 10}
