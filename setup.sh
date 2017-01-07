@@ -2,6 +2,7 @@
 #set -x
 
 DIR=$(pwd>&1)
+mkdir ${DIR}/dump
 
 echo Downloading testdata dump files...
 
@@ -17,8 +18,7 @@ curl "https://s3-us-west-2.amazonaws.com/perf-artifacts/fts_load_standalone_dump
 curl "https://s3-us-west-2.amazonaws.com/perf-artifacts/fts_load_standalone_dump/wiki_cb_dump_9.txt" -o ${DIR}/dump/wiki_cb_dump_9.txt
 
 
-
-echo Getting load tools...
+echo Getting tools...
 go get -u github.com/agyryk/hey
 go get -u github.com/agyryk/gocbupload
 
